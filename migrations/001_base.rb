@@ -4,7 +4,7 @@ Sequel.migration do
     create_table(:orders) do
       primary_key :id
       String :name
-      String :plate
+      String :item
       Date   :day
       String :note
     end
