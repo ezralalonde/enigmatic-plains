@@ -1,7 +1,9 @@
 require "rubygems"
 require "bundler"
 
-Bundler.require(:default, :web, ENV['RACK_ENV'].to_sym)
+require "./help"
+Bundler.require(:default, :web, environment)
 
 require "./web"
 MyApp.run!
+

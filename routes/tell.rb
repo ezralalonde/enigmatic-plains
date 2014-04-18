@@ -1,7 +1,7 @@
 
 class MyApp < Sinatra::Base
   get "/tell" do
-    "Tell, %s world" % ENV["RACK_ENV"]
+    "Tell, %s world" % environment
   end
 end
 
