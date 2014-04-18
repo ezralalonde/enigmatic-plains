@@ -1,4 +1,5 @@
 require "sequel"
+require_relative "./help"
 
 unless ENV["DATABASE_URL"]
   require "dotenv"
@@ -37,9 +38,6 @@ namespace :db do
     database[:schema_info].first[:version] - 1
   end
 
-  def database
-    Sequel.connect(ENV["DATABASE_URL"])
-  end
 end
 
 
