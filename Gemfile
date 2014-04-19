@@ -2,6 +2,7 @@ source "https://rubygems.org"
 ruby "1.9.3"
 
 gem "rake", "10.1.1"
+gem "rspec", "2.14.1"
 
 group :web do
   gem "sinatra", "1.4.4"
@@ -10,7 +11,6 @@ group :web do
 end
 
 group :test do
-  gem "rspec", "2.14.1"
 end
 
 group :development do
