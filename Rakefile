@@ -1,10 +1,5 @@
 require "sequel"
-require_relative "./help"
-
-unless ENV["DATABASE_URL"]
-  require "dotenv"
-  Dotenv.load
-end
+require_relative "lib/help"
 
 namespace :db do
 
