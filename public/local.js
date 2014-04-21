@@ -209,11 +209,13 @@ function initPathAC(what) {
         // event handler
         .keyup(resizeInput)
         .keypress(resizeInput)
+        .click(resizeInput)
         // resize on page load
         .each(resizeInput);
     $('input[type="text"]')
         .keyup(stripSpaces)
         .keypress(stripSpaces)
+        .click(stripSpaces)
         .bind("change", stripSpaces);
 }
 
