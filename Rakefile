@@ -2,7 +2,7 @@ require "sequel"
 require_relative "lib/help"
 
 task :run do
-  exec("rerun 'foreman start'")
+  exec("foreman start")
 end
 
 namespace :db do
