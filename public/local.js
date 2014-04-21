@@ -31,21 +31,21 @@ var menu = {
 function porkveggie(e) {
     return {
         "Pork": e,
-            "Vegetarian": e,
+        "Vegetarian": e,
     };
 }
 function chickenveggie(e) {
     return {
         "Chicken": e,
-            "Vegetarian": e,
+        "Vegetarian": e,
     };
 }
 
 function meat(e) {
     return {
         "Chicken": e,
-            "Pork": e,
-            "Vegetarian": e,
+        "Pork": e,
+        "Vegetarian": e,
     };
 }
 
@@ -208,10 +208,13 @@ function initPathAC(what) {
     $('input[type="text"]')
         // event handler
         .keyup(resizeInput)
+        .keypress(resizeInput)
         // resize on page load
         .each(resizeInput);
     $('input[type="text"]')
-        .keyup(stripSpaces);
+        .keyup(stripSpaces)
+        .keypress(stripSpaces)
+        .bind("change", stripSpaces);
 }
 
 initPathAC($(".pathInput"));
@@ -230,8 +233,8 @@ function stripSpaces() {
 // add a new input upon clicking "plus"
 $(".plus").click(function() {
     $('<input>').attr('type','text')
-                .attr("class", "pathInput").appendTo('form');
-    initPathAC($(".pathInput"));
+    .attr("class", "pathInput").appendTo('form');
+initPathAC($(".pathInput"));
 });
 
 
