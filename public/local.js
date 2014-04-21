@@ -210,6 +210,8 @@ function initPathAC(what) {
         .keyup(resizeInput)
         // resize on page load
         .each(resizeInput);
+    $('input[type="text"]')
+        .keyup(stripSpaces);
 }
 
 initPathAC($(".pathInput"));
@@ -217,6 +219,12 @@ initPathAC($(".pathInput"));
 // scale textboxes with the length of input
 function resizeInput() {
     $(this).attr('size', $(this).val().length);
+}
+
+function stripSpaces() {
+    str = $(this).val();
+    str = '' + str.replace(/ +(?= )/g,'');
+    $(this).val(str);
 }
 
 // add a new input upon clicking "plus"
