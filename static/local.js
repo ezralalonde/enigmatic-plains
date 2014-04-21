@@ -108,11 +108,6 @@ function split(val) {
     return val.split(separator);
 }
 
-// get the last directory entry in a path
-function extractLast(val) {
-    return split(val).pop();
-}
-
 // find the longest common start in an array of strings
 function sharedStart(A) {
     var tem1, tem2, s;
@@ -136,7 +131,8 @@ function sharedStart(A) {
         if (tem2.match(re)) {
             res = m;
             break;
-        }--s;
+        }
+        --s;
     }
 
     return res;
@@ -166,8 +162,6 @@ function acSource(request, response) {
     // build a new suggestion
     path.push(sharedStart(avail));
     if (avail.length == 1) path.push("");
-
-    // set suggestion for autocomplete
 
     // delegate back to autocomplete, but extract the last term
     response($.ui.autocomplete.filter(avail, last));
@@ -225,7 +219,7 @@ function resizeInput() {
     $(this).attr('size', $(this).val().length);
 }
 
-
+// add a new input upon clicking "plus"
 $(".plus").click(function() {
     $('<input>').attr('type','text')
                 .attr("class", "pathInput").appendTo('form');
