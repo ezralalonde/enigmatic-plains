@@ -1,6 +1,10 @@
 require "sequel"
 require_relative "lib/help"
 
+task :run do
+  `foreman start`
+end
+
 namespace :db do
 
   desc "Update the DB"
