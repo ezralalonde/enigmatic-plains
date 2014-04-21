@@ -211,6 +211,25 @@ function initPathAC(what) {
         .bind("click", acSearch)
         .autocomplete(acPathOptions)
         .autocomplete("enable");
+    $('input[type="text"]')
+        // event handler
+        .keyup(resizeInput)
+        // resize on page load
+        .each(resizeInput);
 }
 
 initPathAC($(".pathInput"));
+
+// scale textboxes with the length of input
+function resizeInput() {
+    $(this).attr('size', $(this).val().length);
+}
+
+
+$(".plus").click(function() {
+    $('<input>').attr('type','text')
+                .attr("class", "pathInput").appendTo('form');
+    initPathAC($(".pathInput"));
+});
+
+
