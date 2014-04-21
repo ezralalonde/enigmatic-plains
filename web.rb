@@ -1,5 +1,6 @@
-set :public_folder, File.dirname(__FILE__) + "/static"
-
+class MyApp < Sinatra::Base
+    enable :sessions
+end
 
 require_relative "routes/init"
 
