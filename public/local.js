@@ -227,7 +227,7 @@ function stripSpaces() {
     str = $(this).val();
     str = '' + str.replace(/ +(?= )/g,'');
     $(this).val(str);
-    $(this).trigger("change");
+    $(this).trigger("focus");
 }
 
 // add a new input upon clicking "plus"
