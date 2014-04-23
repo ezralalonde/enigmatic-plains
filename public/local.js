@@ -210,10 +210,13 @@ function initPathAC(what) {
         // event handler
         .keyup(stripSpaces)
         .keypress(stripSpaces)
-        .change(stripSpaces)
         .click(stripSpaces)
+        .each(stripSpaces)
+        .keyup(resizeInput)
+        .keypress(resizeInput)
+        .click(resizeInput)
         // resize on page load
-        .each(stripSpaces);
+        .each(resizeInput);
 }
 
 initPathAC($(".pathInput"));
@@ -227,14 +230,13 @@ function stripSpaces() {
     str = $(this).val();
     str = '' + str.replace(/ +(?= )/g,'');
     $(this).val(str);
-    $(this).trigger("focus");
 }
 
 // add a new input upon clicking "plus"
 $(".plus").click(function() {
     $('<input>').attr('type','text')
     .attr("class", "pathInput").appendTo('form');
-initPathAC($(".pathInput"));
+    initPathAC($(".pathInput"));
 });
 
 
