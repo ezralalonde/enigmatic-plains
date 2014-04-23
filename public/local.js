@@ -32,13 +32,14 @@ function porkveggie(e) {
         "Pork": e,
         "Vegetarian": e,
     };
-}
+};
+
 function chickenveggie(e) {
     return {
         "Chicken": e,
         "Vegetarian": e,
     };
-}
+};
 
 function meat(e) {
     return {
@@ -46,26 +47,26 @@ function meat(e) {
         "Pork": e,
         "Vegetarian": e,
     };
-}
+};
 
 function shrimp(e) {
     return {
         "Shrimp": e,
     };
-}
+};
 
 function beefchicken(e) {
     return {
         "Beef": e,
         "Chicken": e,
     };
-}
+};
 
 function chicken(e) {
     return {
         "Chicken": e,
     };
-}
+};
 
 function spice(e) {
     return {
@@ -80,8 +81,8 @@ function spice(e) {
         "Level 10": e,
         "Level 11": e,
         "Level 12": e,
-    }
-}
+    };
+};
 
 function curry(e) {
     return {
@@ -91,7 +92,7 @@ function curry(e) {
         "Chicken and Potato": e,
         "Vegetable Stir-fry": e,
     };
-}
+};
 
 function base(e) {
     return {
@@ -100,19 +101,21 @@ function base(e) {
         "Egg Noodle": e,
         "Spicy Rice": e,
     };
-}
+};
 
 // tokenize a path string into an array
 function split(val) {
     return val.split(/,\s+/);
-}
+};
 
 // find the longest common start in an array of strings
 function sharedStart(A) {
     var tem1, tem2, s;
     var res = "";
 
-    if (A.length == 0) return res;
+    if (A.length == 0) {
+        return res;
+    };
 
     A = A.slice(0).sort();
     tem1 = A[0];
@@ -130,9 +133,9 @@ function sharedStart(A) {
         if (tem2.match(re)) {
             res = m;
             break;
-        }
+        };
         --s;
-    }
+    };
 
     return res;
 }
@@ -147,7 +150,7 @@ function acSource(request, response) {
     for (var n = 1; n < depth && typeof node !== "undefined"; n++) {
         var cur = path[n - 1];
         node = node[cur];
-    }
+    };
 
     // build a regex with the last directory entry being typed
     var last = path.pop();
@@ -156,11 +159,13 @@ function acSource(request, response) {
     // filter suggestions by matching with the regex
     for (var k in node) {
         if (k.match(re)) avail.push(k);
-    }
+    };
 
     // build a new suggestion
     path.push(sharedStart(avail));
-    if (avail.length == 1) path.push("");
+    if (avail.length == 1) {
+        path.push("");
+    };
 
     // delegate back to autocomplete, but extract the last term
     response($.ui.autocomplete.filter(avail, last));
@@ -180,11 +185,11 @@ function acSelect(event, ui) {
     this.value = terms.join(", ");
     $(".pathInput").trigger("keyup");
     return false;
-}
+};
 
 function acSearch() {
     $(this).autocomplete("search");
-}
+};
 
 var acPathOptions = {
     minLength: 0,
@@ -197,7 +202,7 @@ var acPathOptions = {
         // prevent value inserted on focus
         return false;
     }
-}
+};
 
 function initPathAC(what) {
     $(what)
@@ -216,20 +221,23 @@ function initPathAC(what) {
         .keypress(resizeInput)
         .click(resizeInput)
         .each(resizeInput);
-}
+};
 
 initPathAC($(".pathInput"));
 
 // scale textboxes with the length of input
 function resizeInput() {
     $(this).attr('size', $(this).val().length);
-}
+};
 
 function stripSpaces() {
     str = $(this).val();
     out = '' + str.replace(/ +(?= )/g,'');
     $(this).val(out);
-}
+    if (str != out) {
+        $(this).autocomplete("search");
+    };
+};
 
 // add a new input upon clicking "plus"
 $(".plus").click(function() {
