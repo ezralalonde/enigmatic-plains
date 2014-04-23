@@ -1,30 +1,25 @@
 var menu = {
+    'Asian Garden Salad': "",
+    'Burmese Fried Noodle': meat(),
+    'Burmese Noodle Bowl': meat(shrimp()),
+    'Burmese Pizza': "",
     'Burmese Samosas': chickenveggie(),
     'Burmese Spring Rolls': porkveggie(),
-    'Thousand Layer Bread': "",
+    'Coconut Noodle Bowl': shrimp(chicken()),
+    'Ginger Chicken Salad':"",
+    'Ginger Mandarin Salad': chicken(),
+    'Mandalay Noodle Salad': "",
+    'Pat Thai': {},
+    'Pickled Green Tea Leaf Salad': "",
+    'Soup of the Day': "",
+    'Spicy Rice Bowl': beefchicken(spice()),
+    'Stir Fry Dish': base(meat()),
+    'Tempura Mushrooms': "",
     'Tempura Onion': "",
     'Tempura Squash': "",
-    'Tempura Mushrooms': "",
-    'Soup of the Day': "",
-
-    // Salads
-    'Mandalay Noodle Salad': "",
-    'Asian Garden Salad': "",
-    'Ginger Chicken Salad':"",
-    'Pickled Green Tea Leaf Salad': "",
-    'Ginger Mandarin Salad': chicken(),
-
-    // Lunch
-    'Burmese Pizza': "",
     'Thai Pizza': "",
-    'Spicy Rice Bowl': beefchicken(spice()),
-    'Burmese Fried Noodle': meat(),
-    'Stir Fry Dish': base(meat()),
-    'Pat Thai': {},
-    'Burmese Noodle Bowl': meat(shrimp()),
-    'Coconut Noodle Bowl': shrimp(chicken()),
+    'Thousand Layer Bread': "",
     'Two Curry Special': base(curry(curry(spice()))),
-    // Drinks?
 };
 
 function porkveggie(e) {
@@ -96,9 +91,9 @@ function curry(e) {
 
 function base(e) {
     return {
+        "Egg Noodle": e,
         "Rice": e,
         "Rice Noodle": e,
-        "Egg Noodle": e,
         "Spicy Rice": e,
     };
 };
