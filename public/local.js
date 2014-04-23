@@ -241,8 +241,7 @@ function stripSpaces() {
 
 // add a new input upon clicking "plus"
 $(".plus").click(function() {
-    $('<input>').attr('type','text')
-    .attr("class", "pathInput").appendTo('form');
+    $('<input>').attr('type','text').attr("class", "pathInput").appendTo('form');
     initPathAC($(".pathInput"));
 });
 
