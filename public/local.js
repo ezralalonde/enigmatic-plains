@@ -205,17 +205,16 @@ function initPathAC(what) {
         .click(acSearch)
         .change(acSearch)
         .autocomplete(acPathOptions)
-        .autocomplete("enable");
-    $('input[type="text"]')
-        // event handler
+        .autocomplete("enable")
+        // strip duplicate spaces
         .keyup(stripSpaces)
         .keypress(stripSpaces)
         .click(stripSpaces)
         .each(stripSpaces)
+        // resize input to fit text
         .keyup(resizeInput)
         .keypress(resizeInput)
         .click(resizeInput)
-        // resize on page load
         .each(resizeInput);
 }
 
@@ -228,8 +227,8 @@ function resizeInput() {
 
 function stripSpaces() {
     str = $(this).val();
-    str = '' + str.replace(/ +(?= )/g,'');
-    $(this).val(str);
+    out = '' + str.replace(/ +(?= )/g,'');
+    $(this).val(out);
 }
 
 // add a new input upon clicking "plus"
