@@ -201,14 +201,16 @@ var acPathOptions = {
 
 function initPathAC(what) {
     $(what)
-        .bind("focus", acSearch)
-        .bind("click", acSearch)
+        .focus(acSearch)
+        .click(acSearch)
+        .change(acSearch)
         .autocomplete(acPathOptions)
         .autocomplete("enable");
     $('input[type="text"]')
         // event handler
         .keyup(stripSpaces)
         .keypress(stripSpaces)
+        .change(stripSpaces)
         .click(stripSpaces)
         // resize on page load
         .each(stripSpaces);
@@ -225,6 +227,7 @@ function stripSpaces() {
     str = $(this).val();
     str = '' + str.replace(/ +(?= )/g,'');
     $(this).val(str);
+    $(this).trigger("change");
 }
 
 // add a new input upon clicking "plus"
