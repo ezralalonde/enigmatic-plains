@@ -207,16 +207,11 @@ function initPathAC(what) {
         .autocomplete("enable");
     $('input[type="text"]')
         // event handler
-        .keyup(resizeInput)
-        .keypress(resizeInput)
-        .click(resizeInput)
-        // resize on page load
-        .each(resizeInput);
-    $('input[type="text"]')
         .keyup(stripSpaces)
         .keypress(stripSpaces)
         .click(stripSpaces)
-        .bind("change", stripSpaces);
+        // resize on page load
+        .each(stripSpaces);
 }
 
 initPathAC($(".pathInput"));
