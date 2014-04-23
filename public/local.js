@@ -51,20 +51,20 @@ function meat(e) {
 
 function shrimp(e) {
     return {
-        "plus Shrimp": e,
+        "Shrimp": e,
     };
 }
 
 function beefchicken(e) {
     return {
-        "with Beef": e,
-        "with Chicken": e,
+        "Beef": e,
+        "Chicken": e,
     };
 }
 
 function chicken(e) {
     return {
-        "with Chicken": e,
+        "Chicken": e,
     };
 }
 
