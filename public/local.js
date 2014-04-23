@@ -178,7 +178,7 @@ function acSelect(event, ui) {
 
     // build path
     this.value = terms.join(", ");
-    $(".pathInput").trigger("change");
+    $(".pathInput").trigger("keyup");
     return false;
 }
 
