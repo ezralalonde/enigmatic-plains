@@ -1,4 +1,3 @@
-var separator = ", ";
 var menu = {
     'Burmese Samosas': chickenveggie(),
     'Burmese Spring Rolls': porkveggie(),
@@ -105,7 +104,7 @@ function base(e) {
 
 // tokenize a path string into an array
 function split(val) {
-    return val.split(separator);
+    return val.split(/,\s+/);
 }
 
 // find the longest common start in an array of strings
@@ -178,7 +177,8 @@ function acSelect(event, ui) {
     terms.push("");
 
     // build path
-    this.value = terms.join(separator);
+    this.value = terms.join(", ");
+    $(".pathInput").trigger("change");
     return false;
 }
 
